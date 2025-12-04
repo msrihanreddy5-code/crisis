@@ -1,0 +1,210 @@
+/* ---------- GLOBAL ---------- */
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Arial;
+}
+
+body {
+  background: linear-gradient(135deg, #dfe9ff, #eef3ff);
+  transition: 0.4s;
+  padding-bottom: 50px;
+}
+
+/* ---------- HEADER ---------- */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 85, 255, 0.85);
+  padding: 18px 20px;
+  backdrop-filter: blur(12px);
+  color: white;
+  position: relative;
+}
+
+.title {
+  font-size: 50px;
+  font-weight: 900;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+@keyframes glow {
+  0% { text-shadow: 0 0 5px white; }
+  50% { text-shadow: 0 0 20px cyan; }
+  100% { text-shadow: 0 0 5px white; }
+}
+
+.animated-title {
+  animation: glow 2s infinite ease-in-out;
+}
+
+.small-toggle {
+  width: 38px;
+  height: 38px;
+  font-size: 16px;
+  border-radius: 8px;
+  background: white;
+  color: #003ec7;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  right: 20px;
+  top: 15px;
+}
+
+/* ---------- CARD ---------- */
+.card {
+  width: 92%;
+  max-width: 500px;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(15px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.fade-in {
+  animation: fade 0.7s ease-in-out;
+}
+
+@keyframes fade {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; }
+}
+
+/* ---------- INPUT BOX ---------- */
+.input-box {
+  position: relative;
+}
+
+.icon {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  font-size: 18px;
+}
+
+#description {
+  padding: 6px 10px 6px 40px;
+  height: 32px;
+  font-size: 14px;
+  font-weight: 600;
+  border: 2px solid #0055ff;
+  border-radius: 10px;
+}
+
+.input-box input,
+.input-box select {
+  padding-left: 40px;
+}
+
+input, select, button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 12px;
+  border-radius: 10px;
+  border: 1px solid #bfcaff;
+  font-size: 16px;
+}
+
+button {
+  background: #0055ff;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #003ec7;
+}
+
+/* ---------- MAP ---------- */
+#map {
+  width: 92%;
+  height: 350px;
+  margin: 20px auto;
+  border-radius: 18px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+}
+
+/* ---------- ALERTS ---------- */
+.section-title {
+  text-align: center;
+  font-size: 30px;
+  font-weight: 700;
+  margin-top: 25px;
+}
+
+.alert {
+  width: 92%;
+  max-width: 500px;
+  margin: 15px auto;
+  padding: 15px;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.35);
+  animation: fade 0.5s ease;
+}
+
+.low    { border-left: 6px solid #4caf50; }
+.medium { border-left: 6px solid #ff9800; }
+.high   { border-left: 6px solid #f44336; }
+
+.deleteBtn {
+  padding: 7px 12px;
+  background: #ff2e2e;
+  border: none;
+  color: white;
+  border-radius: 6px;
+}
+
+/* ---------- SUBMITTED POPUP ---------- */
+.submit-popup {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #00c853;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  display: none;
+  animation: fadeInOut 2s ease-in-out;
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translateY(-20px); }
+  20% { opacity: 1; transform: translateY(0); }
+  80% { opacity: 1; }
+  100% { opacity: 0; transform: translateY(-20px); }
+}
+
+/* ---------- DARK MODE ---------- */
+.dark body {
+  background: #0f0f0f;
+}
+
+.dark .card,
+.dark .alert {
+  background: rgba(25, 25, 25, 0.6);
+  color: white;
+}
+
+.dark header {
+  background: rgba(0, 0, 0, 0.85);
+}
+
+.dark input,
+.dark select {
+  background: #1f1f1f;
+  color: white;
+}
+
+.dark button {
+  background: #0080ff;
+}
