@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Crisis Alert System</title>
+  <link rel="stylesheet" href="style.css">
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <h1 class="title animated-title">CRISIS ALERT SYSTEM</h1>
+    <button id="toggleTheme" class="small-toggle" onclick="toggleTheme()">🌙</button>
+  </header>
+
+  <!-- FORM -->
+  <div class="card form-card fade-in">
+
+    <div class="input-box">
+      <span class="icon">📝</span>
+      <input id="description" placeholder="Describe the issue clearly">
+    </div>
+
+    <div class="input-box">
+      <span class="icon">📌</span>
+      <select id="type" onchange="checkOthers()">
+        <option>Water Shortage</option>
+        <option>Power Cut</option>
+        <option>Traffic Jam</option>
+        <option>Medicine Shortage</option>
+        <option>Emergency</option>
+        <option>Others</option>
+      </select>
+    </div>
+
+    <!-- Custom issue input box -->
+    <div class="input-box" id="otherBox" style="display:none;">
+      <span class="icon">✏️</span>
+      <input id="otherInput" placeholder="Enter your issue">
+    </div>
+
+    <div class="input-box">
+      <span class="icon">🔥</span>
+      <select id="severity">
+        <option value="low">Low</option>
+        <option value="medium">Medium</option>
+        <option value="high">High</option>
+      </select>
+    </div>
+
+    <button onclick="enableLocation()">📍 Pick Location</button>
+    <button onclick="saveAlert()">➕ Submit Alert</button>
+  </div>
+
+  <!-- FILTERS -->
+  <div class="card filter-card fade-in">
+    <select id="filterType" onchange="displayAlerts()">
+      <option value="all">All Types</option>
+      <option>Water Shortage</option>
+      <option>Power Cut</option>
+      <option>Traffic Jam</option>
+      <option>Medicine Shortage</option>
+      <option>Emergency</option>
+      <option>Others</option>
+    </select>
+
+    <select id="filterSeverity" onchange="displayAlerts()">
+      <option value="all">All Severities</option>
+      <option value="low">Low</option>
+      <option value="medium">Medium</option>
+      <option value="high">High</option>
+    </select>
+  </div>
+
+  <div id="map"></div>
+
+  <h2 class="section-title">Live Alerts</h2>
+  <div id="alerts"></div>
+
+  <!-- SUBMITTED POPUP -->
+  <div id="submitMsg" class="submit-popup">Submitted ✔</div>
+
+  <script src="script.js"></script>
+</body>
+</html>
